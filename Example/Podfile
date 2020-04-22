@@ -1,0 +1,6 @@
+use_frameworks!
+target 'BlockAlert_Tests' do
+  pod 'BlockAlert', :path => '../'
+  
+  
+end
