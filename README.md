@@ -8,6 +8,8 @@ BlockAlert helps you initializing and presenting alert controller with shorter c
 
 ## Example
 
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
 ```swift
 func presentAlert() {
     UIAlertController("Type anything", title: "Prompt") { alert in
@@ -22,22 +24,19 @@ func presentAlert() {
             UIAlertAction(cancel: "Cancel")
         ])
 
-    }.show()
+    }.present()
 }
 ```
 
 ```swift
 typealias Alert = UIAlertController
-typealias Action = UIAlertAction
 
 func presentActionSheet() {
-    Alert(nil, title: "Select one", preferredStyple: .actionSheet) {
-        $0.addActions([
-            Action("Default"),
-            Action(destructive: "Destructive")
-        ])
-        $0.addAction(Action(cancel: "Cancel"))
-    }.show()
+    Alert(preferredStyple: .actionSheet) {
+        $0.title = "Action Sheet"
+        $0.addAction(title: "Default")
+        $0.addAction(.cancel, title: "Cancel")
+    }.present()
 }
 ```
 

@@ -2,19 +2,26 @@ import UIKit
 
 public extension UIAlertController {
     
-    /// Create and returns `.alert` style alert controller.
-    convenience init(_ message: String?, title: String? = nil, block: ((UIAlertController) -> Void)? = nil) {
-        self.init(title: title, message: message, preferredStyle: .alert)
-        block?(self)
-    }
-    
-    convenience init(_ message: String?, title: String? = nil, preferredStyle: Style, block: ((UIAlertController) -> Void)? = nil) {
+    /// Creates and returns a view controller for displaying an alert to the user. Default style is `.alert`.
+    convenience init(_ message: String?, title: String? = nil, preferredStyle: Style = .alert, block: ((UIAlertController) -> Void)? = nil) {
         self.init(title: title, message: message, preferredStyle: preferredStyle)
         block?(self)
     }
     
+    /// Creates and returns a view controller for displaying an alert to the user. Default style is `.alert`.
+    convenience init(preferredStyle: Style = .alert, block: (UIAlertController) -> Void) {
+        self.init(title: nil, message: nil, preferredStyle: preferredStyle)
+        block(self)
+    }
+    
     /// Presents alert modally, at topmost view controller.
+    @available(*, deprecated, renamed: "present(completion:)")
     func show(completion: (() -> Void)? = nil) {
+        present(completion: completion)
+    }
+    
+    /// Presents alert modally, at topmost view controller.
+    func present(completion: (() -> Void)? = nil) {
         var keyWindow: UIWindow? {
             guard #available(iOS 13, *) else { return UIApplication.shared.keyWindow }
             return UIApplication.shared.windows.first(where: { $0.isKeyWindow })
@@ -27,6 +34,12 @@ public extension UIAlertController {
             
             topController.present(self, animated: true, completion: completion)
         }
+    }
+    
+    /// Attaches an action object to the alert or action sheet.
+    func addAction(_ style: UIAlertAction.Style = .default, title: String?, handler: ((UIAlertAction) -> Void)?) {
+        let action = UIAlertAction(title: title, style: style, handler: handler)
+        addAction(action)
     }
     
     /// Attaches action objects to the alert or action sheet.
@@ -53,10 +66,6 @@ public extension UIAlertAction {
     /// Create and return a `.destructive` style action with the specified title.
     convenience init(destructive title: String, handler: ((UIAlertAction) -> Void)? = nil) {
         self.init(title: title, style: .destructive, handler: handler)
-    }
-    
-    convenience init(_ title: String, style: Style, handler: ((UIAlertAction) -> Void)? = nil) {
-        self.init(title: title, style: style, handler: handler)
     }
     
 }
