@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'BlockAlert'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = 'Alert controller extension for convenience.'
   s.description      = <<-DESC
   BlockAlert helps you initializing and presenting alert controller with shorter codes.

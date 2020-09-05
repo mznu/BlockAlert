@@ -1,6 +1,5 @@
 use_frameworks!
-target 'BlockAlert_Tests' do
+
+target 'BlockAlert_Example' do
   pod 'BlockAlert', :path => '../'
-  
-  
 end
