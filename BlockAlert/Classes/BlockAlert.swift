@@ -37,7 +37,7 @@ public extension UIAlertController {
     }
     
     /// Attaches an action object to the alert or action sheet.
-    func addAction(_ style: UIAlertAction.Style = .default, title: String?, handler: ((UIAlertAction) -> Void)?) {
+    func addAction(_ style: UIAlertAction.Style = .default, title: String?, handler: ((UIAlertAction) -> Void)? = nil) {
         let action = UIAlertAction(title: title, style: style, handler: handler)
         addAction(action)
     }

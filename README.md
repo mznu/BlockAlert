@@ -29,10 +29,10 @@ func presentAlert() {
 ```
 
 ```swift
-typealias Alert = UIAlertController
+typealias ActionSheet = UIAlertController
 
 func presentActionSheet() {
-    Alert(preferredStyple: .actionSheet) {
+    ActionSheet(preferredStyle: .actionSheet) {
         $0.title = "Action Sheet"
         $0.addAction(title: "Default")
         $0.addAction(.cancel, title: "Cancel")
