@@ -3,3 +3,7 @@ use_frameworks!
 target 'BlockAlert_Example' do
   pod 'BlockAlert', :path => '../'
 end
+
+target 'BlockAlert_Tests' do
+  pod 'BlockAlert', :path => '../'
+end
