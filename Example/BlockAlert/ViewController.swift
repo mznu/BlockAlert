@@ -32,18 +32,19 @@ final class ViewController: UIViewController {
     }
     
     private func sampleA() {
-        UIAlertController(alertMessage, title: alertTitle) {
+        let alert = UIAlertController(alertMessage, title: alertTitle) {
             $0.addTextField()
             $0.addActions([
                 UIAlertAction(alertDefault) { print($0.title!) },
                 UIAlertAction(cancel: alertCancel) { print($0.title!) },
                 UIAlertAction(destructive: alertDestructive) { print($0.title!) }
             ])
-        }.present()
+        }
+        present(alert, animated: true)
     }
     
     private func sampleB() {
-        UIAlertController {
+        let alert = UIAlertController {
             $0.title = alertTitle
             $0.message = alertMessage
             $0.addTextField()
@@ -51,7 +52,8 @@ final class ViewController: UIViewController {
             $0.addAction(title: alertDefault) { print($0.title!) }
             $0.addAction(.cancel, title: alertCancel) { print($0.title!) }
             $0.addAction(.destructive, title: alertDestructive) { print($0.title!) }
-        }.present()
+        }
+        present(alert, animated: true)
     }
     
     @IBAction private func didTouchPresentAlert(_ button: UIButton) {

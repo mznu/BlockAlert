@@ -12,7 +12,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ```swift
 func presentAlert() {
-    UIAlertController("Type anything", title: "Prompt") { alert in
+    let alert = UIAlertController("Type anything", title: "Prompt") { alert in
 
         // alert is UIAlertController
 
@@ -24,7 +24,8 @@ func presentAlert() {
             UIAlertAction(cancel: "Cancel")
         ])
 
-    }.present()
+    }
+    present(alert, animated: true)
 }
 ```
 
@@ -32,11 +33,12 @@ func presentAlert() {
 typealias ActionSheet = UIAlertController
 
 func presentActionSheet() {
-    ActionSheet(preferredStyle: .actionSheet) {
+    let actionSheet = ActionSheet(preferredStyle: .actionSheet) {
         $0.title = "Action Sheet"
         $0.addAction(title: "Default")
         $0.addAction(.cancel, title: "Cancel")
-    }.present()
+    }
+    present(actionSheet, animated: true)
 }
 ```
 

@@ -1,5 +1,5 @@
 PODS:
-  - BlockAlert (1.1.0)
+  - BlockAlert (1.1.2)
 
 DEPENDENCIES:
   - BlockAlert (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BlockAlert: 673a9161b5918586174dd8f510c68c1996e01e34
+  BlockAlert: 859e9a438404abf73bd541991fa69dc8f8362f2e
 
 PODFILE CHECKSUM: 19bbe22dfa4ae6d22c823376169cad9a784eec28
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1

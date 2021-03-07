@@ -21,6 +21,7 @@ public extension UIAlertController {
     }
     
     /// Presents alert modally, at topmost view controller.
+    @available(*, deprecated, message: "This method will be removed at next minor version.")
     func present(completion: (() -> Void)? = nil) {
         var keyWindow: UIWindow? {
             guard #available(iOS 13, *) else { return UIApplication.shared.keyWindow }
